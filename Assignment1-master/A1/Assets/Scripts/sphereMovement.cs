@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Anson Cheng 100585118
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,30 +7,177 @@ using UnityEngine;
 
 public interface typeSpawner
 {
+    void assessHealth();
+    bool getHealthStatus();
+    void takeDmg(float a);
+
+    void jump(Transform a);
+    void walk(Transform a, Transform b);
     void process(Transform a, Transform b);
 }
-public class lemming : typeSpawner
+public class largeEnemy : typeSpawner
 {
-    public lemming()
+    private Collider CL;
+    private Rigidbody RB;
+
+    public float health;
+    public int healthStatus;
+    public float jumpHeight;
+    public float walkSpeed;
+
+    public largeEnemy()
     {
+        health = 100f;
+        healthStatus = 1;
+        jumpHeight = 25f;
+        walkSpeed = 0.5f;
     }
 
-    public void process(Transform a, Transform b)
+    public void assessHealth()
     {
-        a.position = Vector3.MoveTowards(a.position, b.position, 20 * Time.deltaTime);
+        if (health <= 0f)
+            healthStatus = 0;
+    }
+    public bool getHealthStatus()
+    {
+        if (healthStatus == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+    public void takeDmg(float amount)
+    {
+        health -= amount;
     }
 
+    public void attack(Transform enemy, Transform player)
+    {
+        
+    }
+
+    public void jump(Transform enemy)
+    {
+        CL = enemy.GetComponent<Collider>();
+        RB = enemy.GetComponent<Rigidbody>();
+
+        if (Physics.Raycast(new Vector3(enemy.position.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f))
+        {
+            if (!Physics.Raycast(new Vector3(enemy.position.x + enemy.localScale.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f) || !Physics.Raycast(new Vector3(enemy.position.x - enemy.localScale.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f))
+            {
+                RB.velocity = Vector3.up * jumpHeight;
+            }
+        }
+
+        if (RB.velocity.y < 0.0f)
+        {
+           RB.velocity = Vector3.up * Physics2D.gravity * 4;
+        }
+    }
+    public void walk(Transform enemy, Transform player)
+    {
+        if (enemy.position.x > player.position.x)
+        {
+            enemy.position = enemy.position + new Vector3(-walkSpeed, 0f, 0f);
+        }
+        else if (enemy.position.x < player.position.x)
+        {
+            enemy.position = enemy.position + new Vector3(walkSpeed, 0f, 0f);
+        }
+    }
+    public void process(Transform enemy, Transform player)
+    {
+        assessHealth();
+        walk(enemy, player);
+        jump(enemy);
+    }
 }
-public class jumper : typeSpawner
+public class smallEnemy : typeSpawner
 {
-    public jumper()
-    {
+    private Collider CL;
+    private Rigidbody RB;
 
+    public float health;
+    public int healthStatus;
+    public float jumpHeight;
+    public float walkSpeed;
+
+    public smallEnemy()
+    {
+        health = 100f;
+        healthStatus = 2;
+        jumpHeight = 25f;
+        walkSpeed = 0.5f;
     }
 
-    public void process(Transform a, Transform b)
+    public void assessHealth()
     {
-        a.Translate(0f, 30 * Time.deltaTime, 0f);
+        if (health <= 50f)
+            healthStatus = 1;
+        else if (health <= 0f)
+            healthStatus = 0;
+    }
+    public bool getHealthStatus()
+    {
+        if (healthStatus == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+    public void takeDmg(float amount)
+    {
+        health -= amount;
+    }
+
+    public void jump(Transform enemy)
+    {
+        CL = enemy.GetComponent<Collider>();
+        RB = enemy.GetComponent<Rigidbody>();
+
+        if (Physics.Raycast(new Vector3(enemy.position.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f))
+        {
+            if (!Physics.Raycast(new Vector3(enemy.position.x + enemy.localScale.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f) || !Physics.Raycast(new Vector3(enemy.position.x - enemy.localScale.x, enemy.position.y, enemy.position.z), -Vector3.up, CL.bounds.extents.y + 0.1f))
+            {
+                RB.velocity = Vector3.up * jumpHeight;
+            }
+        }
+
+        if (RB.velocity.y < 0.0f)
+        {
+            RB.velocity = Vector3.up * Physics2D.gravity * 4;
+        }
+    }
+    public void walk(Transform enemy, Transform player)
+    {
+        if (healthStatus == 2)
+        {
+            if (enemy.position.x > player.position.x)
+            {
+                enemy.position = enemy.position + new Vector3(-walkSpeed, 0f, 0f);
+            }
+            else if (enemy.position.x < player.position.x)
+            {
+                enemy.position = enemy.position + new Vector3(walkSpeed, 0f, 0f);
+            }
+        }
+        else
+        {
+            if (enemy.position.x > player.position.x)
+            {
+                enemy.position = enemy.position + new Vector3(walkSpeed * 1.5f, 0f, 0f);
+            }
+            else if (enemy.position.x < player.position.x)
+            {
+                enemy.position = enemy.position + new Vector3(-walkSpeed * 1.5f, 0f, 0f);
+            }
+        }
+    }
+    public void process(Transform enemy, Transform player)
+    {
+        assessHealth();
+        walk(enemy, player);
+        jump(enemy);
     }
 }
 public class spawnerFactory
@@ -38,12 +186,12 @@ public class spawnerFactory
     {
         switch (type)
         {
-            case ("lemming"):
-                return new lemming();
-            case ("jumper"):
-                return new jumper();
+            case ("largeEnemy"):
+                return new largeEnemy();
+            case ("smallEnemy"):
+                return new smallEnemy();
             default:
-                return new lemming();
+                return new largeEnemy();
         }
     }
 }
@@ -54,46 +202,47 @@ public class sphereMovement : MonoBehaviour
 
     public List<typeSpawner> spawner = new List<typeSpawner>();
     spawnerFactory sFactory = new spawnerFactory();
-
     public int typeSwitcher = 1;
+
+    public float attackPlayerTimer = 0.75f;
 
     private void Awake()
     {
-        spawner.Add(sFactory.GetType("lemming"));
-        spawner.Add(sFactory.GetType("jumper"));
+        if (typeSwitcher == 1)
+        {
+            spawner.Add(sFactory.GetType("largeEnemy"));
+        }
+        else if (typeSwitcher == 2)
+        {
+            spawner.Add(sFactory.GetType("smallEnemy"));
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (transform.position.x > player.transform.position.x - player.transform.localScale.x - 10 && transform.position.x < player.transform.position.x + player.transform.localScale.x + 10)
         {
-            typeSwitcher = 1;
+            attackPlayerTimer -= Time.deltaTime;
+            if (attackPlayerTimer < 0)
+            {
+                //attack player here
+                attackPlayerTimer = 0.75f;
+            }
+    
+            //Use if player initiates an attack
+            //spawner[0].takeDmg(5f);
         }
-        else if(Input.GetKey(KeyCode.Alpha2))
+        else
         {
-            typeSwitcher = 2;
-        }
-        else if(Input.GetKey(KeyCode.Alpha3))
-        {
-            typeSwitcher = 3;
+            attackPlayerTimer = 1;
         }
 
-
-        if (typeSwitcher == 1)
-        {
-            spawner[0].process(transform, player.transform);
-        }
-        else if (typeSwitcher == 2)
-        {
-            spawner[1].process(transform, player.transform);
-        }
+        spawner[0].process(transform, player.transform);
     }
 }
 

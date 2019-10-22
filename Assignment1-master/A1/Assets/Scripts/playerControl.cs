@@ -14,7 +14,7 @@ public class playerControl : MonoBehaviour
             return _PControlInstance;
     }
 
-    private float jumpVelocity = 15.0f;
+    private float jumpVelocity = 20.0f;
 
     public bool groundState;
     public bool liveState;
@@ -51,19 +51,19 @@ public class playerControl : MonoBehaviour
         //Horizontal planar movement.
         if (Input.GetKey(KeyCode.W)) // Forward
         {
-            transform.Translate(0f, 0f, 30f * Time.deltaTime);
+            transform.Translate(0f, 0f, 75f * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S)) // Backward
         {
-            transform.Translate(0f, 0f, -30f * Time.deltaTime);
+            transform.Translate(0f, 0f, -75f * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A)) // Left
         {
-            transform.Translate(-30f * Time.deltaTime, 0f, 0f);
+            transform.Translate(-75f * Time.deltaTime, 0f, 0f);
         }
         if (Input.GetKey(KeyCode.D)) // Right
         {
-            transform.Translate(30f * Time.deltaTime, 0f, 0f);
+            transform.Translate(75f * Time.deltaTime, 0f, 0f);
         }
 
         //Jump check and physics.
@@ -84,7 +84,7 @@ public class playerControl : MonoBehaviour
         //Death check and respawn player.
         if(liveState == false)
         {
-            Vector3 respawn = new Vector3(-29.0f, -14.5f, 6.0f);
+            Vector3 respawn = new Vector3(100.0f, 22.5f, 80.0f);
             transform.position = respawn;
             liveState = true;
         }
