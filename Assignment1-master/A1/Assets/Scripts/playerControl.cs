@@ -84,7 +84,7 @@ public class playerControl : MonoBehaviour
         //Death check and respawn player.
         if(liveState == false)
         {
-            Vector3 respawn = new Vector3(100.0f, 22.5f, 80.0f);
+            Vector3 respawn = new Vector3(100.0f, 22.5f, 0.0f);
             transform.position = respawn;
             liveState = true;
         }
