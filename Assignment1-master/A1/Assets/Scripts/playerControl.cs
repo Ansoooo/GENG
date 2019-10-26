@@ -48,6 +48,7 @@ public class playerControl : MonoBehaviour
     }
     void movePlayer()
     {
+        float moveSpd = 75f;
         //Horizontal planar movement.
         if (Input.GetKey(KeyCode.W)) // Forward
         {
