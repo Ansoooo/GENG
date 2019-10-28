@@ -227,20 +227,26 @@ public class enemyBehaviour : MonoBehaviour
 
     void manageAttacks()
     {
+        CommandPattern.CommandPattern accessCommandPattern = player.gameObject.GetComponent<CommandPattern.CommandPattern>();
+
         //PLAYER - ENEMY ATTACKS
         if (transform.position.x > player.transform.position.x - player.transform.localScale.x - 10 && transform.position.x < player.transform.position.x + player.transform.localScale.x + 10 && transform.position.y > player.transform.position.y - player.transform.localScale.y - 10 && transform.position.y < player.transform.position.y + player.transform.localScale.y + 10)
         {
             attackPlayerTimer -= Time.deltaTime;
-            if (attackPlayerTimer < 0)
+            if (attackPlayerTimer < 0 && !(accessCommandPattern.playerHealth <= 0))
             {
                 //attack player here
-                spawner[0].takeDmg(10);
-                Debug.Log(gameObject.name + "attacks");
+                accessCommandPattern.playerHealth -= 10f;
                 attackPlayerTimer = 0.75f;
+                //Debug.Log(gameObject.name + "attacks");
             }
 
             //Use if player initiates an attack
-            //spawner[0].takeDmg(5f);
+            if (accessCommandPattern.attacking == true)
+            {
+                spawner[0].takeDmg(10f);
+                //Debug.Log(gameObject.name + " says: ow");
+            }
         }
         else // reset timer if player leaves zone
         {

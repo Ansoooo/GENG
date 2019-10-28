@@ -8,8 +8,12 @@ namespace CommandPattern
     {
         // Object created for control
         public Transform myObj, bullet;
+        public bool attacking = false;
+        public float attackingTimer = 0.25f;
+        public float playerHealth = 100f;
+
         // keyboard functions
-        private Command W, S, A, D, K, Space;
+        private Command W, S, A, D, K, J, Space;
         // object initialization position
         private Vector3 myObjInitPos;
 
@@ -21,45 +25,67 @@ namespace CommandPattern
             A = new MoveLeft();
             D = new MoveRight();
             K = new AttackFunction();
+            J = new PunchFunction();
             Space = new JumpFunction();
             myObjInitPos = myObj.position;
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if(playerHealth <= 0)
+            {
+                //add respawn func here.
+                Debug.Log("respawnPlayer");
+            }
+            if (attacking == true)
+                attacking = false;
+            if(attackingTimer <= 0)
+            {
+                attackingTimer = 0;
+            }
+            else
+            {
+                attackingTimer -= Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.A))
             {
                 A.Execute(myObj, A);
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
                 D.Execute(myObj, D);
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S))
             {
                 S.Execute(myObj, S);
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
                 W.Execute(myObj, W);
             }
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKey(KeyCode.K))
             {
                 K.Execute(myObj, K);
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKey(KeyCode.J))
+            {
+                J.Execute(myObj, J);
+            }
+            else if (Input.GetKey(KeyCode.Space))
             {
                 Space.Execute(myObj, Space);
             }
+            
         }
     }
 
     public abstract class Command
     {
         // set value
-        protected float moveSpd = 10.0f;
-        protected float jumpSpeed = 10.0f;
-        protected float speed = 500.0f;
+        protected float moveSpd = 1.0f;
+        protected float jumpSpeed = 15.0f;
+        protected float speed = 1.0f;
 
         // Execute functions and save it to command
         public abstract void Execute(Transform myObj, Command command);
@@ -69,9 +95,9 @@ namespace CommandPattern
 
         // jump function for object
         public virtual void Jump(Transform myObj) { }
-
         //
         public virtual void Attack(Transform bullet) { }
+        public virtual void Punch(Transform myObj) { }
     }
 
     public class MoveFront : Command
@@ -149,8 +175,9 @@ namespace CommandPattern
 
         // move object for 0.5f
         public override void Jump(Transform myObj)
-        {
-            myObj.position += Vector3.up * jumpSpeed;
+        {   
+            if(Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
+                myObj.GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
         }
     }
 
@@ -166,6 +193,24 @@ namespace CommandPattern
         public override void Attack(Transform bullet)
         {
 
+        }
+    }
+
+    public class PunchFunction : Command 
+    {
+        public override void Execute(Transform myObj, Command command)
+        {
+            Punch(myObj);
+        }
+
+        public override void Punch(Transform myObj)
+        {
+            CommandPattern accessCommandPattern = myObj.gameObject.GetComponent<CommandPattern>();
+            if (accessCommandPattern.attackingTimer == 0)
+            {
+                accessCommandPattern.attacking = true;
+                accessCommandPattern.attackingTimer = 0.25f;
+            }
         }
     }
 }
