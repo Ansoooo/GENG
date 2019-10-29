@@ -9,8 +9,10 @@ namespace CommandPattern
         // Object created for control
         public Transform myObj, bullet;
         public bool attacking = false;
+        public bool shooting = false;
         public float attackingTimer = 0.25f;
         public float playerHealth = 100f;
+        public float speed = 500.0f;
 
         // keyboard functions
         private Command W, S, A, D, K, J, Space;
@@ -48,6 +50,13 @@ namespace CommandPattern
                 attackingTimer -= Time.deltaTime;
             }
 
+            if (shooting == true)
+            {
+                Transform newBullet = Instantiate(bullet, transform.position, Quaternion.identity) as Transform;
+                newBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+            }
+            
+
             if (Input.GetKey(KeyCode.A))
             {
                 A.Execute(myObj, A);
@@ -84,8 +93,7 @@ namespace CommandPattern
     {
         // set value
         protected float moveSpd = 1.0f;
-        protected float jumpSpeed = 15.0f;
-        protected float speed = 1.0f;
+        protected float jumpSpeed = 10.0f;
 
         // Execute functions and save it to command
         public abstract void Execute(Transform myObj, Command command);
@@ -192,7 +200,8 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Attack(Transform bullet)
         {
-
+            CommandPattern shootCommandPattern = bullet.gameObject.GetComponent<CommandPattern>();
+            shootCommandPattern.shooting = true;
         }
     }
 
