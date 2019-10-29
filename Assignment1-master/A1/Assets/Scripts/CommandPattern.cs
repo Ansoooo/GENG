@@ -52,8 +52,10 @@ namespace CommandPattern
 
             if (shooting == true)
             {
-                Transform newBullet = Instantiate(bullet, transform.position, Quaternion.identity) as Transform;
-                newBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+                Transform newBullet = Instantiate(bullet, myObj.position, Quaternion.identity) as Transform;
+                //newBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+                newBullet.GetComponent<Rigidbody>().AddForce(speed, 0, 0);
+                shooting = false;
             }
             
 
@@ -201,7 +203,7 @@ namespace CommandPattern
         public override void Attack(Transform bullet)
         {
             CommandPattern shootCommandPattern = bullet.gameObject.GetComponent<CommandPattern>();
-            shootCommandPattern.shooting = true;
+            shootCommandPattern.shooting = true;     
         }
     }
 

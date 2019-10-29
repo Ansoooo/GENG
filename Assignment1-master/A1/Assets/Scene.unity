@@ -2159,10 +2159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myObj: {fileID: 1566876545}
-  bullet: {fileID: 1672501999024791803, guid: 5bf4513c2cff2934bb9966c5d598827e, type: 3}
+  bullet: {fileID: 5820641200204866362, guid: 5bf4513c2cff2934bb9966c5d598827e, type: 3}
   attacking: 0
   shooting: 0
-  attackingTimer: 0.25
+  attackingTimer: 0.1
   playerHealth: 100
   speed: 1
 --- !u!114 &1566876548
@@ -2177,7 +2177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfcfd64ae74173459008bb30334865b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: {fileID: 5820641200204866362, guid: 5bf4513c2cff2934bb9966c5d598827e, type: 3}
+  x: {fileID: 1672501999024791803, guid: 5bf4513c2cff2934bb9966c5d598827e, type: 3}
   spd: 500
 --- !u!1 &1730716595
 GameObject:

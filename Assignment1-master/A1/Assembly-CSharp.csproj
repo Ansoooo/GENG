@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\objectMemory.cs" />
     <Compile Include="Assets\Scripts\playerControl.cs" />
     <Compile Include="Assets\Scripts\PluginTest.cs" />
-    <Compile Include="Assets\Scripts\tEST.cs" />
     <Compile Include="Assets\Scripts\winBehaviour.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Z:/UOIT/Game Engine/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
