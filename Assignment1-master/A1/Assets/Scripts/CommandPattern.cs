@@ -22,8 +22,6 @@ namespace CommandPattern
         void Start()
         {
             // keyboard command functions
-            W = new MoveFront();
-            S = new MoveBack();
             A = new MoveLeft();
             D = new MoveRight();
             K = new AttackFunction();
@@ -57,7 +55,11 @@ namespace CommandPattern
                 newBullet.GetComponent<Rigidbody>().AddForce(speed, 0, 0);
                 shooting = false;
             }
-            
+
+            if (GetComponent<Rigidbody>().velocity.y < 0.0f) //When after peak of jump, increase gravity.
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.up * Physics2D.gravity * 4;
+            }
 
             if (Input.GetKey(KeyCode.A))
             {
@@ -95,7 +97,7 @@ namespace CommandPattern
     {
         // set value
         protected float moveSpd = 1.0f;
-        protected float jumpSpeed = 10.0f;
+        protected float jumpSpeed = 20.0f;
 
         // Execute functions and save it to command
         public abstract void Execute(Transform myObj, Command command);
@@ -110,38 +112,6 @@ namespace CommandPattern
         public virtual void Punch(Transform myObj) { }
     }
 
-    public class MoveFront : Command
-    {
-        // call function for object move front and save for command
-        public override void Execute(Transform myObj, Command command)
-        {
-            // move object
-            Move(myObj);
-        }
-
-        // move object for 0.5f
-        public override void Move(Transform myObj)
-        {
-            myObj.Translate(myObj.forward * moveSpd);
-        }
-    }
-
-    public class MoveBack : Command
-    {
-        // call function for object move back and save for command
-        public override void Execute(Transform myObj, Command command)
-        {
-            // move object
-            Move(myObj);
-        }
-
-        // move object for 0.5f
-        public override void Move(Transform myObj)
-        {
-            myObj.Translate(-myObj.forward * moveSpd);
-        }
-    }
-
     public class MoveLeft : Command
     {
         // call function for object move left and save for command
@@ -154,7 +124,10 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
-            myObj.Translate(-myObj.right * moveSpd);
+            if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
+                myObj.Translate(-myObj.right * moveSpd);
+            else
+                myObj.Translate(-myObj.right * moveSpd * 0.5f);
         }
     }
 
@@ -170,7 +143,10 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
-            myObj.Translate(myObj.right * moveSpd);
+            if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
+                myObj.Translate(myObj.right * moveSpd);
+            else
+                myObj.Translate(myObj.right * moveSpd * 0.5f);
         }
     }
 
