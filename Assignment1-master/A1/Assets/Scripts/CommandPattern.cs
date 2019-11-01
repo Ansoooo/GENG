@@ -15,7 +15,7 @@ namespace CommandPattern
         public float speed = 500.0f;
 
         // keyboard functions
-        private Command W, S, A, D, K, J, Space;
+        private Command A, D, K, J, Space;
         // object initialization position
         private Vector3 myObjInitPos;
 
@@ -69,14 +69,6 @@ namespace CommandPattern
             {
                 D.Execute(myObj, D);
             }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                S.Execute(myObj, S);
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                W.Execute(myObj, W);
-            }
             if (Input.GetKey(KeyCode.K))
             {
                 K.Execute(myObj, K);
@@ -96,7 +88,7 @@ namespace CommandPattern
     public abstract class Command
     {
         // set value
-        protected float moveSpd = 1.0f;
+        protected float moveSpd = 2.0f;
         protected float jumpSpeed = 20.0f;
 
         // Execute functions and save it to command
@@ -124,6 +116,10 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
+            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
+            if (accessTutorialText.stageNum == 1f)
+            { accessTutorialText.updateText(accessTutorialText.stageNum, 1f); }
+
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(-myObj.right * moveSpd);
             else
@@ -143,6 +139,10 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
+            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
+            if (accessTutorialText.stageNum == 1.2f)
+            { accessTutorialText.updateText(accessTutorialText.stageNum, 1.2f); }
+
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(myObj.right * moveSpd);
             else
@@ -161,8 +161,12 @@ namespace CommandPattern
 
         // move object for 0.5f
         public override void Jump(Transform myObj)
-        {   
-            if(Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
+        {
+            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
+            if (accessTutorialText.stageNum == 1.4f)
+            { accessTutorialText.updateText(accessTutorialText.stageNum, 1.4f); }
+
+            if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
         }
     }
