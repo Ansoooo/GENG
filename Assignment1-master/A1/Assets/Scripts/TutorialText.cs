@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TutorialText : MonoBehaviour
 {
+    GameObject HIDControls;
     public float stageNum = 0f;
     private float nextStageNum = 0f;
    
@@ -21,7 +22,12 @@ public class TutorialText : MonoBehaviour
             //Movement Stages
             case (1f): // Left
                 {
-                    gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press A to move Left"; // instructions given to player
+                    if (HIDControls)
+                    {
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Left Arrow to move Left";
+                    }
+                    else
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press A to move Left"; // instructions given to player
                     if (_stageKey == 1) // move onto next stage
                     {
                         stageNum = 1.1f;
@@ -38,7 +44,12 @@ public class TutorialText : MonoBehaviour
                 }
             case (1.2f): // Right
                 {
-                    gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press D to move Right";
+                    if (HIDControls)
+                    {
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Right Arrow to move Right";
+                    }
+                    else
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press D to move Right";
                     if (_stageKey == 1.2f)
                     {
                         stageNum = 1.3f;
@@ -55,7 +66,12 @@ public class TutorialText : MonoBehaviour
                 }
             case (1.4f): // Jump
                 {
-                    gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Space to move Jump";
+                    if (HIDControls)
+                    {
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Up Arrow to move Jump";
+                    }
+                    else
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Space to move Jump";
                     if (_stageKey == 1.4f)
                     {
                         stageNum = 1.5f;
@@ -64,6 +80,28 @@ public class TutorialText : MonoBehaviour
                     return;
                 }
             case (1.5f):
+                {
+                    gameObject.GetComponent<UnityEngine.UI.Text>().text = "Good!";
+                    nextStageNum = 2f;
+                    Invoke("progressStage", 2.0f);
+                    return;
+                }
+            case (2f): // Punch
+                {
+                    if (HIDControls)
+                    {
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press P to move Punch";
+                    }
+                    else
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press J to move Punch";
+                    if (_stageKey == 2f)
+                    {
+                        stageNum = 2.1f;
+                        updateText(stageNum, 0);
+                    }
+                    return;
+                }
+            case (2.1f):
                 {
                     gameObject.GetComponent<UnityEngine.UI.Text>().text = "Good!";
                     nextStageNum = -1f;
@@ -85,6 +123,7 @@ public class TutorialText : MonoBehaviour
 
     void Start()
     {
+        HIDControls = GameObject.Find("HIDControls");
         stageNum = 1f;
         updateText(stageNum, 0);
     }

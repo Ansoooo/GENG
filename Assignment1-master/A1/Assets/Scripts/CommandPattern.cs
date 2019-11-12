@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace CommandPattern
 {
@@ -12,12 +13,51 @@ namespace CommandPattern
         public bool shooting = false;
         public float attackingTimer = 0.25f;
         public float playerHealth = 100f;
+        public GameObject healthUI;
         public float speed = 500.0f;
 
         // keyboard functions
         private Command A, D, K, J, Space;
         // object initialization position
         private Vector3 myObjInitPos;
+
+        // Mobile (HID) functions
+        public bool LeftButton = false;
+        public bool RightButton = false;
+        public bool UpButton = false;
+        public bool PunchButton = false;
+        public void HIDControlLeftD()
+        {
+            LeftButton = true;
+        }
+        public void HIDControlLeftU()
+        {
+            LeftButton = false;
+        }
+        public void HIDControlRightD()
+        {
+            RightButton = true;
+        }
+        public void HIDControlRightU()
+        {
+            RightButton = false;
+        }
+        public void HIDControlJumpD()
+        {
+            UpButton = true;
+        }
+        public void HIDControlJumpU()
+        {
+            UpButton = false;
+        }
+        public void HIDControlPunchD()
+        {
+            PunchButton = true;
+        }
+        public void HIDControlPunchU()
+        {
+            PunchButton = false;
+        }
 
         void Start()
         {
@@ -32,11 +72,14 @@ namespace CommandPattern
 
         void Update()
         {
-            if(playerHealth <= 0)
+            if(playerHealth <= 0 || myObj.transform.position.y < -40)
             {
                 //add respawn func here.
+                myObj.transform.position = new Vector3(101, 20, 0);
+                playerHealth = 100f;
                 Debug.Log("respawnPlayer");
             }
+            healthUI.GetComponent<UnityEngine.UI.Text>().text = "Health: " + playerHealth.ToString();
             if (attacking == true)
                 attacking = false;
             if(attackingTimer <= 0)
@@ -61,11 +104,11 @@ namespace CommandPattern
                 GetComponent<Rigidbody>().velocity = Vector3.up * Physics2D.gravity * 4;
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || LeftButton == true)
             {
                 A.Execute(myObj, A);
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) || RightButton == true)
             {
                 D.Execute(myObj, D);
             }
@@ -73,11 +116,11 @@ namespace CommandPattern
             {
                 K.Execute(myObj, K);
             }
-            else if (Input.GetKey(KeyCode.J))
+            else if (Input.GetKey(KeyCode.J) || PunchButton == true)
             {
                 J.Execute(myObj, J);
             }
-            else if (Input.GetKey(KeyCode.Space))
+            else if (Input.GetKey(KeyCode.Space) || UpButton == true)
             {
                 Space.Execute(myObj, Space);
             }
@@ -196,6 +239,10 @@ namespace CommandPattern
 
         public override void Punch(Transform myObj)
         {
+            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
+            if (accessTutorialText.stageNum == 2f)
+            { accessTutorialText.updateText(accessTutorialText.stageNum, 2f); }
+
             CommandPattern accessCommandPattern = myObj.gameObject.GetComponent<CommandPattern>();
             if (accessCommandPattern.attackingTimer == 0)
             {

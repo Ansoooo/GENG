@@ -212,6 +212,7 @@ public class enemyBehaviour : MonoBehaviour
     public int typeSwitcher;
 
     public float attackPlayerTimer = 0.75f;
+    private Renderer thisRend;
 
     private void Awake()
     {
@@ -245,8 +246,11 @@ public class enemyBehaviour : MonoBehaviour
             if (accessCommandPattern.attacking == true)
             {
                 spawner[0].takeDmg(10f);
+                gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
                 //Debug.Log(gameObject.name + " says: ow");
             }
+            else
+                gameObject.GetComponent<Renderer>().material.color = thisRend.material.color;
         }
         else // reset timer if player leaves zone
         {
@@ -263,6 +267,7 @@ public class enemyBehaviour : MonoBehaviour
     void Start()
     {
         gameObject.transform.parent = GameObject.Find("EnemyInstances").transform;
+        thisRend = GameObject.Find("largeEnemyPrefab").GetComponent<Renderer>();
     }
 
     void Update()
