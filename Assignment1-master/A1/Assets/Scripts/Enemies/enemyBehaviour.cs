@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Factory method from https://www.youtube.com/watch?v=n3YAuCsIWqA 
 
@@ -10,6 +11,7 @@ public interface typeSpawner
     void assessHealth();
     bool getHealthStatus();
     void takeDmg(float a);
+    float getHealth();
 
     void jump(Transform a);
     void walk(Transform a, Transform b);
@@ -49,6 +51,11 @@ public class largeEnemy : typeSpawner
     public void takeDmg(float amount)
     {
         health -= amount;
+    }
+
+    public float getHealth()
+    {
+        return health;
     }
 
     public void attack(Transform enemy, Transform player)
@@ -132,6 +139,10 @@ public class smallEnemy : typeSpawner
     {
         health -= amount;
     }
+    public float getHealth()
+    {
+        return health;
+    }
 
     public void jump(Transform enemy)
     {
@@ -213,18 +224,8 @@ public class enemyBehaviour : MonoBehaviour
 
     public float attackPlayerTimer = 0.75f;
     private Renderer thisRend;
-
-    private void Awake()
-    {
-        if (typeSwitcher == 1)
-        {
-            spawner.Add(sFactory.GetType("largeEnemy"));
-        }
-        else if (typeSwitcher == 2)
-        {
-            spawner.Add(sFactory.GetType("smallEnemy"));
-        }
-    }
+    public Text healthBarPrefab;
+    private Text myHealthBar;
 
     void manageAttacks()
     {
@@ -260,14 +261,50 @@ public class enemyBehaviour : MonoBehaviour
         //ENEMY DEATHS and falling off platform
         if (spawner[0].getHealthStatus() == false || gameObject.transform.position.y < -40)
         {
+            RidHealthBar();
             Destroy(gameObject);
+        }
+    }
+
+    public float GetHealth()
+    {
+        return spawner[0].getHealth();
+    }
+    private void GetHealthBar()
+    {
+        myHealthBar = Instantiate(healthBarPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        myHealthBar.transform.SetParent(GameObject.Find("Canvas").transform);
+        myHealthBar.GetComponent<AttachText>().parent = gameObject;
+        myHealthBar.gameObject.SetActive(true);
+    }
+    private void RidHealthBar()
+    {
+        Destroy(myHealthBar);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Player")) // CHANGE TO BULLET TAG
+        {
+            //FOR BULLETS HERE.
+            //Debug.Log("stop, bullet timeeee")
         }
     }
 
     void Start()
     {
+        if (typeSwitcher == 1)
+        {
+            spawner.Add(sFactory.GetType("largeEnemy"));
+        }
+        else if (typeSwitcher == 2)
+        {
+            spawner.Add(sFactory.GetType("smallEnemy"));
+        }
+
         gameObject.transform.parent = GameObject.Find("EnemyInstances").transform;
         thisRend = GameObject.Find("largeEnemyPrefab").GetComponent<Renderer>();
+        GetHealthBar();
     }
 
     void Update()

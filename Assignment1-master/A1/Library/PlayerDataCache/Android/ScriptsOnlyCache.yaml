@@ -5,10 +5,12 @@ ScriptsOnlyBuild:
     - FMODUnity.EditorEventRef
     - FMODUnity.EventCache
     Assembly-CSharp-firstpass.dll:
+    - FMODUnity.RuntimeManager
     - FMODUnity.Settings
     - FMODUnity.StudioEventEmitter
     - FMODUnity.StudioListener
     Assembly-CSharp.dll:
+    - AttachText
     - CommandPattern.CommandPattern
     - TutorialText
     - enemyBehaviour
@@ -101,6 +103,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11698}
     - Class: 114
       Script: {instanceID: 11730}
+    - Class: 114
+      Script: {instanceID: 14342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -144,7 +148,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 7763bf18d2a97686a4becbb76219ed81
+      Hash: e200a6df6ab54b7370e6b29eea8b4bae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemyBehaviour
@@ -844,6 +848,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 152e183bfbed26a16fe16da9035134a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AttachText
   platform: 13
   scenePathNames:
   - Assets/Scene.unity

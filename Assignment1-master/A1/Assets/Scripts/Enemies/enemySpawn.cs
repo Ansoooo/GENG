@@ -20,7 +20,7 @@ public class enemySpawn : MonoBehaviour
         numSpawnPoints += 1;
     }
 
-    void spawnEnemies(float L, float S, int location) //spawn L number of large enemies and S number of small enemies at spawn coordinates of location
+    public void spawnEnemies(float L, float S, int location) //spawn L number of large enemies and S number of small enemies at spawn coordinates of location
     {
         if (location <= numSpawnPoints)
         {
