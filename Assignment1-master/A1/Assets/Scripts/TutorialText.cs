@@ -90,14 +90,20 @@ public class TutorialText : MonoBehaviour
                 {
                     if (HIDControls)
                     {
-                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press P to move Punch";
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press P to Punch";
                     }
                     else
-                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press J to move Punch";
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press J to Punch";
                     if (_stageKey == 2f)
-                    {
+                    {          
                         stageNum = 2.1f;
                         updateText(stageNum, 0);
+                    }
+                    else
+                    {
+                        enemySpawn tutorialSpawn = GameObject.Find("Enemies").GetComponent<enemySpawn>();
+                        tutorialSpawn.spawnEnemies(0, 1, 1);
+                        tutorialSpawn.spawnEnemies(1, 0, 0);
                     }
                     return;
                 }
@@ -126,10 +132,5 @@ public class TutorialText : MonoBehaviour
         HIDControls = GameObject.Find("HIDControls");
         stageNum = 1f;
         updateText(stageNum, 0);
-    }
-
-    void Update()
-    {
-      
     }
 }

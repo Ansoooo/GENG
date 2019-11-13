@@ -42,11 +42,7 @@ public class enemySpawn : MonoBehaviour
         addSpawnPoint(-250, 22, 0);
         addSpawnPoint(160, 22, 0);
 
-        spawnEnemies(0, 1, 1);
-        spawnEnemies(1, 0, 0);
-    }
-
-    void Update()
-    {
+        //spawnEnemies(0, 1, 1);
+        //spawnEnemies(1, 0, 0);
     }
 }

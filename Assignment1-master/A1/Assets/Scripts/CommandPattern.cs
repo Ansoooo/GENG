@@ -75,8 +75,10 @@ namespace CommandPattern
             if(playerHealth <= 0 || myObj.transform.position.y < -40)
             {
                 //add respawn func here.
-                myObj.transform.position = new Vector3(101, 20, 0);
-                playerHealth = 100f;
+                //myObj.transform.position = new Vector3(101, 20, 0);
+                //playerHealth = 100f;
+                ChangeScenes death = new ChangeScenes();
+                death.changeScenes("GameScene");
                 Debug.Log("respawnPlayer");
             }
             healthUI.GetComponent<UnityEngine.UI.Text>().text = "Health: " + playerHealth.ToString();

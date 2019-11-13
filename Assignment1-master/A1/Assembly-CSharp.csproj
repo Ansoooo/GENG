@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AttachText.cs" />
+    <Compile Include="Assets\Scripts\ChangeScenes.cs" />
     <Compile Include="Assets\Scripts\CommandPattern.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemySpawn.cs" />

@@ -19,10 +19,10 @@ public class AttachText : MonoBehaviour
         if (parent != null)
         {
             gameObject.transform.position = Camera.main.WorldToScreenPoint(parent.transform.position);
-        }
-        if(parent.tag.Equals("Enemy"))
-        {
-            gameObject.GetComponent<UnityEngine.UI.Text>().text = "Health: " + parent.GetComponent<enemyBehaviour>().GetHealth();
+            if (parent.tag.Equals("Enemy"))
+            {
+                gameObject.GetComponent<UnityEngine.UI.Text>().text = "Health: " + parent.GetComponent<enemyBehaviour>().GetHealth();
+            }
         }
     }
 }
