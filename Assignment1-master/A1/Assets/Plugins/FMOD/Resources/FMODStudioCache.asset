@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5908143135351371999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637096837288106411
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5433950044591913473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +33,7 @@ MonoBehaviour:
   Path: event:/Test
   guid: fa13f06c6f35a54ca2349a3a341db42d
   Banks:
-  - {fileID: 3162505025458800445}
+  - {fileID: -5908143135351371999}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -55,15 +73,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 483928324648137333}
-  - {fileID: 3162505025458800445}
+  - {fileID: -5908143135351371999}
   EditorEvents:
   - {fileID: -5433950044591913473}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3162505025458800445}
+  - {fileID: -5908143135351371999}
   StringsBanks:
   - {fileID: 483928324648137333}
-  stringsBankWriteTime: 637080447550686089
+  stringsBankWriteTime: 637096837288136306
   cacheVersion: 3
 --- !u!114 &483928324648137333
 MonoBehaviour:
@@ -79,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637080447550686089
+  lastModified: 637096837288136306
   LoadResult: 0
   FileSizes:
   - Name: Desktop
