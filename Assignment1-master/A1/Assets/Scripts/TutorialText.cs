@@ -68,10 +68,10 @@ public class TutorialText : MonoBehaviour
                 {
                     if (HIDControls)
                     {
-                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Up Arrow to move Jump";
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Up Arrow to Jump";
                     }
                     else
-                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Space to move Jump";
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press Space to Jump";
                     if (_stageKey == 1.4f)
                     {
                         stageNum = 1.5f;
@@ -103,7 +103,6 @@ public class TutorialText : MonoBehaviour
                     {
                         enemySpawn tutorialSpawn = GameObject.Find("Enemies").GetComponent<enemySpawn>();
                         tutorialSpawn.spawnEnemies(0, 1, 1);
-                        tutorialSpawn.spawnEnemies(1, 0, 0);
                     }
                     return;
                 }

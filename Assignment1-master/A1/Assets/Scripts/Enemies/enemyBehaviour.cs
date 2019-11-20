@@ -1,5 +1,4 @@
-﻿//Anson Cheng 100585118
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -227,6 +226,8 @@ public class enemyBehaviour : MonoBehaviour
     public Text healthBarPrefab;
     private Text myHealthBar;
 
+    private ScoreText score;
+
     void manageAttacks()
     {
         CommandPattern.CommandPattern accessCommandPattern = player.gameObject.GetComponent<CommandPattern.CommandPattern>();
@@ -234,33 +235,33 @@ public class enemyBehaviour : MonoBehaviour
         //PLAYER - ENEMY ATTACKS
         if (transform.position.x > player.transform.position.x - player.transform.localScale.x - 10 && transform.position.x < player.transform.position.x + player.transform.localScale.x + 10 && transform.position.y > player.transform.position.y - player.transform.localScale.y - 10 && transform.position.y < player.transform.position.y + player.transform.localScale.y + 10)
         {
-            attackPlayerTimer -= Time.deltaTime;
+            attackPlayerTimer -= Time.deltaTime; // enemy attack cooldown
+
+            //ENEMY ATTACK
             if (attackPlayerTimer < 0 && !(accessCommandPattern.playerHealth <= 0))
             {
-                //attack player here
                 accessCommandPattern.playerHealth -= 10f;
                 attackPlayerTimer = 0.75f;
-                //Debug.Log(gameObject.name + "attacks");
             }
 
-            //Use if player initiates an attack
+            //PLAYER ATTACK
             if (accessCommandPattern.attacking == true)
             {
                 spawner[0].takeDmg(10f);
                 gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
-                //Debug.Log(gameObject.name + " says: ow");
             }
             else
                 gameObject.GetComponent<Renderer>().material.color = thisRend.material.color;
         }
-        else // reset timer if player leaves zone
+        else // reset enemy attack cooldown if player leaves a.range
         {
             attackPlayerTimer = 1;
         }
 
-        //ENEMY DEATHS and falling off platform
-        if (spawner[0].getHealthStatus() == false || gameObject.transform.position.y < -40)
+        //ENEMY DEATHS
+        if (spawner[0].getHealthStatus() == false || gameObject.transform.position.y < -20)
         {
+            score.addScore();
             RidHealthBar();
             Destroy(gameObject);
         }
@@ -305,6 +306,8 @@ public class enemyBehaviour : MonoBehaviour
         gameObject.transform.parent = GameObject.Find("EnemyInstances").transform;
         thisRend = GameObject.Find("largeEnemyPrefab").GetComponent<Renderer>();
         GetHealthBar();
+
+        score = GameObject.Find("Score").GetComponent<ScoreText>();
     }
 
     void Update()

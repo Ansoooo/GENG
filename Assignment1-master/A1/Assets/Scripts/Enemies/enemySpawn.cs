@@ -12,6 +12,9 @@ public class enemySpawn : MonoBehaviour
     public float[] spawnY;
     public float[] spawnZ;
 
+    private ScoreText score;
+    private bool scoreSpawn;
+
     void addSpawnPoint(float x, float y, float z)
     {
         spawnX[numSpawnPoints] = x;
@@ -42,7 +45,31 @@ public class enemySpawn : MonoBehaviour
         addSpawnPoint(-250, 22, 0);
         addSpawnPoint(160, 22, 0);
 
-        //spawnEnemies(0, 1, 1);
-        //spawnEnemies(1, 0, 0);
+        score = GameObject.Find("Score").GetComponent<ScoreText>();
+        scoreSpawn = true;
+    }
+
+    void Update()
+    {
+        if(score.getScore() == 1 && scoreSpawn == true)
+        {
+            spawnEnemies(0, 1, 1);
+            spawnEnemies(0, 2, 0);
+            scoreSpawn = false;
+        }
+        else if(score.getScore() == 2)
+        {
+            scoreSpawn = true;
+        }
+
+        if(score.getScore() == 4 && scoreSpawn == true)
+        {
+            spawnEnemies(1, 0, 0);
+            scoreSpawn = false;
+        }
+        else if (score.getScore() == 5)
+        {
+            scoreSpawn = true;
+        }
     }
 }
