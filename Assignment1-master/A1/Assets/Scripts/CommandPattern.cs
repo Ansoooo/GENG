@@ -78,7 +78,7 @@ namespace CommandPattern
                 //myObj.transform.position = new Vector3(101, 20, 0);
                 //playerHealth = 100f;
                 ChangeScenes death = new ChangeScenes();
-                death.changeScenes("GameScene");
+                death.changeScenes("ScoreScene");
                 Debug.Log("respawnPlayer");
             }
             healthUI.GetComponent<UnityEngine.UI.Text>().text = "Health: " + playerHealth.ToString();

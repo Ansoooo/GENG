@@ -5,6 +5,8 @@ using UnityEngine;
 public class ScoreText : MonoBehaviour
 {
     int score;
+    public bool game;
+    private userLogger log;
 
     public void resetScore()
     {
@@ -14,6 +16,7 @@ public class ScoreText : MonoBehaviour
     public void addScore()
     {
         score += 1;
+        log.incrementLog(1, 1, true);
     }
 
     public int getScore()
@@ -23,11 +26,26 @@ public class ScoreText : MonoBehaviour
 
     void Start()
     {
-        resetScore();
+            resetScore();
+            log = GameObject.Find("UserLog").GetComponent<userLogger>();
+        if (game)
+        {
+            log.resetSave();
+        }
     }
 
     void Update()
     {
-        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
+        if (game)
+        {
+            gameObject.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
+        }
+        else
+        {
+            gameObject.GetComponent<UnityEngine.UI.Text>().text = 
+                "Session Score:" + "\n" + 
+                "Punches Thrown: " + log.retrieveLog(0) + "\n" + 
+                "Kills Made: " + log.retrieveLog(1);
+        }
     }
 }

@@ -1,0 +1,6 @@
+﻿  operationTracker.cpp
+C:\Users\clank\Documents\GENGRepo\GENG\Assignment1-master\A1\C++ Assets\Project1\operationTracker.h(12,21): warning C4251:  'operationTracker::logFileOut': class 'std::basic_ofstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'operationTracker'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iosfwd(224): message :  see declaration of 'std::basic_ofstream<char,std::char_traits<char>>'
+C:\Users\clank\Documents\GENGRepo\GENG\Assignment1-master\A1\C++ Assets\Project1\operationTracker.h(13,20): warning C4251:  'operationTracker::logFileIn': class 'std::basic_ifstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'operationTracker'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iosfwd(223): message :  see declaration of 'std::basic_ifstream<char,std::char_traits<char>>'
+  Project1.vcxproj -> C:\Users\clank\Documents\GENGRepo\GENG\Assignment1-master\A1\C++ Assets\x64\Debug\Project1.dll

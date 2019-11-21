@@ -70,6 +70,8 @@ public class enemySpawn : MonoBehaviour
         else if (score.getScore() == 5)
         {
             scoreSpawn = true;
+            ChangeScenes win = new ChangeScenes();
+            win.changeScenes("ScoreScene");
         }
     }
 }

@@ -227,6 +227,7 @@ public class enemyBehaviour : MonoBehaviour
     private Text myHealthBar;
 
     private ScoreText score;
+    private userLogger log;
 
     void manageAttacks()
     {
@@ -249,6 +250,7 @@ public class enemyBehaviour : MonoBehaviour
             {
                 spawner[0].takeDmg(10f);
                 gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
+                log.incrementLog(1f, 0, true);
             }
             else
                 gameObject.GetComponent<Renderer>().material.color = thisRend.material.color;
@@ -308,6 +310,7 @@ public class enemyBehaviour : MonoBehaviour
         GetHealthBar();
 
         score = GameObject.Find("Score").GetComponent<ScoreText>();
+        log = GameObject.Find("UserLog").GetComponent<userLogger>();
     }
 
     void Update()
