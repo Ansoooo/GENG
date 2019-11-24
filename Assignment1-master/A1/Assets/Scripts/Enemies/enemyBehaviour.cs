@@ -250,7 +250,8 @@ public class enemyBehaviour : MonoBehaviour
             {
                 spawner[0].takeDmg(10f);
                 gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
-                log.incrementLog(1f, 0, true);
+                if (!GameObject.Find("HIDControls").activeSelf)
+                    log.incrementLog(1f, 0, true);
             }
             else
                 gameObject.GetComponent<Renderer>().material.color = thisRend.material.color;

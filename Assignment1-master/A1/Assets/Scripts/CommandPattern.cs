@@ -15,6 +15,8 @@ namespace CommandPattern
         public float playerHealth = 100f;
         public GameObject healthUI;
         public float speed = 500.0f;
+        public float fallMult = 2.5f;
+        public float lowfallMult = 2f;
 
         // keyboard functions
         private Command A, D, K, J, Space;
@@ -22,6 +24,7 @@ namespace CommandPattern
         private Vector3 myObjInitPos;
 
         // Mobile (HID) functions
+        GameObject HIDControls;
         public bool LeftButton = false;
         public bool RightButton = false;
         public bool UpButton = false;
@@ -61,6 +64,7 @@ namespace CommandPattern
 
         void Start()
         {
+            HIDControls = GameObject.Find("HIDControls");
             // keyboard command functions
             A = new MoveLeft();
             D = new MoveRight();
@@ -72,13 +76,19 @@ namespace CommandPattern
 
         void Update()
         {
+            //Attack-punching
             if(playerHealth <= 0 || myObj.transform.position.y < -40)
             {
                 //add respawn func here.
                 //myObj.transform.position = new Vector3(101, 20, 0);
                 //playerHealth = 100f;
                 ChangeScenes death = new ChangeScenes();
-                death.changeScenes("ScoreScene");
+                if (!HIDControls) // protect mobile users from the dreaded missing plugin
+                {
+                    death.changeScenes("ScoreScene");
+                }
+                else
+                    death.changeScenes("GameScene");
                 Debug.Log("respawnPlayer");
             }
             healthUI.GetComponent<UnityEngine.UI.Text>().text = "Health: " + playerHealth.ToString();
@@ -93,6 +103,7 @@ namespace CommandPattern
                 attackingTimer -= Time.deltaTime;
             }
 
+            //Attack-shooting
             if (shooting == true)
             {
                 Transform newBullet = Instantiate(bullet, myObj.position, Quaternion.identity) as Transform;
@@ -101,11 +112,18 @@ namespace CommandPattern
                 shooting = false;
             }
 
+            //Jump Phys
             if (GetComponent<Rigidbody>().velocity.y < 0.0f) //When after peak of jump, increase gravity.
             {
-                GetComponent<Rigidbody>().velocity = Vector3.up * Physics2D.gravity * 4;
+                GetComponent<Rigidbody>().velocity += Vector3.up * Physics2D.gravity.y * (fallMult - 1) * Time.deltaTime;
+            }
+            else if (GetComponent<Rigidbody>().velocity.y > 0.0f && !Input.GetKey(KeyCode.Space))
+            {
+                GetComponent<Rigidbody>().velocity += Vector3.up * Physics2D.gravity.y * (lowfallMult - 1) * Time.deltaTime;
             }
 
+
+            //COMMAND PATTERN INPUT
             if (Input.GetKey(KeyCode.A) || LeftButton == true)
             {
                 A.Execute(myObj, A);
@@ -114,6 +132,12 @@ namespace CommandPattern
             {
                 D.Execute(myObj, D);
             }
+            else
+            {
+                AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
+                accessAnimationManager.switchAnimation(0); // reset to idle animation
+            }
+
             if (Input.GetKey(KeyCode.K))
             {
                 K.Execute(myObj, K);
@@ -165,6 +189,10 @@ namespace CommandPattern
             if (accessTutorialText.stageNum == 1f)
             { accessTutorialText.updateText(accessTutorialText.stageNum, 1f); }
 
+            AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
+            accessAnimationManager.turnAround(true);
+            accessAnimationManager.switchAnimation(1);
+
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(-myObj.right * moveSpd);
             else
@@ -187,6 +215,10 @@ namespace CommandPattern
             TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
             if (accessTutorialText.stageNum == 1.2f)
             { accessTutorialText.updateText(accessTutorialText.stageNum, 1.2f); }
+
+            AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
+            accessAnimationManager.turnAround(false);
+            accessAnimationManager.switchAnimation(1);
 
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(myObj.right * moveSpd);

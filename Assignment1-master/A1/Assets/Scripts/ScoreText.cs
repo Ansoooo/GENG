@@ -30,7 +30,8 @@ public class ScoreText : MonoBehaviour
             log = GameObject.Find("UserLog").GetComponent<userLogger>();
         if (game)
         {
-            log.resetSave();
+            if (!GameObject.Find("HIDControls").activeSelf)
+                log.resetSave();
         }
     }
 
