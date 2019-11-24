@@ -74,8 +74,9 @@
     <Compile Include="Assets\Scripts\RocketLauncher\TestManager.cs" />
     <Compile Include="Assets\Scripts\RocketLauncher\TestObject.cs" />
     <Compile Include="Assets\Scripts\SaveAndLoad.cs" />
+    <Compile Include="Assets\Scripts\SaveLoadEnemy.cs" />
+    <Compile Include="Assets\Scripts\SaveLoadPlayer.cs" />
     <Compile Include="Assets\Scripts\ScoreText.cs" />
-    <Compile Include="Assets\Scripts\SLManager.cs" />
     <Compile Include="Assets\Scripts\TutorialText.cs" />
     <Compile Include="Assets\Scripts\userLogger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
