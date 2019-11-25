@@ -243,6 +243,8 @@ public class enemyBehaviour : MonoBehaviour
             {
                 accessCommandPattern.playerHealth -= 10f;
                 attackPlayerTimer = 0.75f;
+                if (!GameObject.Find("HIDControls"))
+                    log.incrementLog(1f, 2, true);
             }
 
             //PLAYER ATTACK
@@ -250,7 +252,7 @@ public class enemyBehaviour : MonoBehaviour
             {
                 spawner[0].takeDmg(10f);
                 gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
-                if (!GameObject.Find("HIDControls").activeSelf)
+                if (!GameObject.Find("HIDControls"))
                     log.incrementLog(1f, 0, true);
             }
             else

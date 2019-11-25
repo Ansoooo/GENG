@@ -16,7 +16,8 @@ public class ScoreText : MonoBehaviour
     public void addScore()
     {
         score += 1;
-        log.incrementLog(1, 1, true);
+        if (!GameObject.Find("HIDControls"))
+            log.incrementLog(1, 1, true);
     }
 
     public int getScore()
@@ -30,7 +31,7 @@ public class ScoreText : MonoBehaviour
             log = GameObject.Find("UserLog").GetComponent<userLogger>();
         if (game)
         {
-            if (!GameObject.Find("HIDControls").activeSelf)
+            if (!GameObject.Find("HIDControls"))
                 log.resetSave();
         }
     }
@@ -45,7 +46,8 @@ public class ScoreText : MonoBehaviour
         {
             gameObject.GetComponent<UnityEngine.UI.Text>().text = 
                 "Session Score:" + "\n" + 
-                "Punches Thrown: " + log.retrieveLog(0) + "\n" + 
+                "Punches Thrown: " + log.retrieveLog(0) + "\n" +
+                "Punches Received: " + log.retrieveLog(2) + "\n" +
                 "Kills Made: " + log.retrieveLog(1);
         }
     }

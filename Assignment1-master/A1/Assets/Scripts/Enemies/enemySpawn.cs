@@ -71,7 +71,10 @@ public class enemySpawn : MonoBehaviour
         {
             scoreSpawn = true;
             ChangeScenes win = new ChangeScenes();
-            win.changeScenes("ScoreScene");
+            if (!GameObject.Find("HIDControls"))
+                win.changeScenes("ScoreScene");
+            else
+                win.changeScenes("Menu");
         }
     }
 }
