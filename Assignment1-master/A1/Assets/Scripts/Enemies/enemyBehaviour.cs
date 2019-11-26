@@ -134,6 +134,11 @@ public class smallEnemy : typeSpawner
         }
         return true;
     }
+    public float animGetHealth()
+    {
+        return healthStatus;
+    }
+
     public void takeDmg(float amount)
     {
         health -= amount;
@@ -228,6 +233,7 @@ public class enemyBehaviour : MonoBehaviour
 
     private ScoreText score;
     private userLogger log;
+    private AnimationManager anim;
 
     void manageAttacks()
     {
@@ -272,6 +278,22 @@ public class enemyBehaviour : MonoBehaviour
         }
     }
 
+    void manageAnimation()
+    {
+        if (gameObject.transform.position.x > player.transform.position.x + player.transform.localScale.x + 5)
+        {
+            anim.switchAnimation(1);
+                anim.turnAround(true);
+        }
+        else if (gameObject.transform.position.x < player.transform.position.x - player.transform.localScale.x - 5)
+        {
+            anim.switchAnimation(1);
+                anim.turnAround(false);
+        }
+        else
+            anim.switchAnimation(0);   
+    }
+
     public float GetHealth()
     {
         return spawner[0].getHealth();
@@ -314,10 +336,12 @@ public class enemyBehaviour : MonoBehaviour
 
         score = GameObject.Find("Score").GetComponent<ScoreText>();
         log = GameObject.Find("UserLog").GetComponent<userLogger>();
+        anim = gameObject.GetComponentInChildren<AnimationManager>();
     }
 
     void Update()
     {
+        manageAnimation();
         manageAttacks();
         spawner[0].process(transform, player.transform);
     }
