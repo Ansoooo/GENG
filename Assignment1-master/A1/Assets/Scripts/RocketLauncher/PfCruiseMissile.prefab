@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3669557367380565722}
   - component: {fileID: 3964457111127527349}
   - component: {fileID: 8603842012752018921}
+  - component: {fileID: 8942370790596426726}
   m_Layer: 0
   m_Name: PfCruiseMissile
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa3bacee670eba4db8597be06d4ea40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 1
 --- !u!96 &8603842012752018921
 TrailRenderer:
   serializedVersion: 2
@@ -141,6 +143,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!65 &8942370790596426726
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956545706807500900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &5443799109861520187
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -167,11 +182,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CruiseMissile
       objectReference: {fileID: 0}
-    - target: {fileID: -7395137040929257019, guid: 4ab581e06f3b88042b9154887d4c359e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e494807fe98891c4dba63bd86cc64aea, type: 2}
     - target: {fileID: -4216859302048453862, guid: 4ab581e06f3b88042b9154887d4c359e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,6 +237,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7395137040929257019, guid: 4ab581e06f3b88042b9154887d4c359e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e494807fe98891c4dba63bd86cc64aea, type: 2}
     - target: {fileID: -3786704959813073318, guid: 4ab581e06f3b88042b9154887d4c359e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

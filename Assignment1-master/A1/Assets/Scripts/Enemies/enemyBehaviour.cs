@@ -290,10 +290,10 @@ public class enemyBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("Player")) // CHANGE TO BULLET TAG
+        if (collision.gameObject.tag.Equals("Bullet")) // CHANGE TO BULLET TAG
         {
-            //FOR BULLETS HERE.
-            //Debug.Log("stop, bullet timeeee")
+            collision.gameObject.SetActive(false);
+            spawner[0].takeDmg(20f);
         }
     }
 

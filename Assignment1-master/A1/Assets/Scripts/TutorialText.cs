@@ -109,8 +109,30 @@ public class TutorialText : MonoBehaviour
             case (2.1f):
                 {
                     gameObject.GetComponent<UnityEngine.UI.Text>().text = "Good!";
+                    nextStageNum = 2.2f;
+                    Invoke("progressStage", 2f);
+                    return;
+                }
+            case (2.2f): // Shoot
+                {
+                    if (HIDControls)
+                    {
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press S to Shoot";
+                    }
+                    else
+                        gameObject.GetComponent<UnityEngine.UI.Text>().text = "Press K to Shoot";
+                    if (_stageKey == 2.2f)
+                    {
+                        stageNum = 2.3f;
+                        updateText(stageNum, 0);
+                    }
+                    return;
+                }
+            case (2.3f):
+                {
+                    gameObject.GetComponent<UnityEngine.UI.Text>().text = "Good!";
                     nextStageNum = -1f;
-                    Invoke("progressStage", 2.0f);
+                    Invoke("progressStage", 2f);
                     return;
                 }
             case (-1f): // End Tutorial

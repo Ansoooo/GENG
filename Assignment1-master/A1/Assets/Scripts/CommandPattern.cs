@@ -79,9 +79,6 @@ namespace CommandPattern
             //Attack-punching
             if(playerHealth <= 0 || myObj.transform.position.y < -40)
             {
-                //add respawn func here.
-                //myObj.transform.position = new Vector3(101, 20, 0);
-                //playerHealth = 100f;
                 ChangeScenes death = new ChangeScenes();
                 if (!HIDControls) // protect mobile users from the dreaded missing plugin
                 {
@@ -193,6 +190,9 @@ namespace CommandPattern
             accessAnimationManager.turnAround(true);
             accessAnimationManager.switchAnimation(1);
 
+            TestManager accessTestManager = GameObject.Find("TestRocket").GetComponent<TestManager>();
+            accessTestManager.direction = true;
+
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(-myObj.right * moveSpd);
             else
@@ -219,6 +219,9 @@ namespace CommandPattern
             AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
             accessAnimationManager.turnAround(false);
             accessAnimationManager.switchAnimation(1);
+
+            TestManager accessTestManager = GameObject.Find("TestRocket").GetComponent<TestManager>();
+            accessTestManager.direction = false;
 
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.Translate(myObj.right * moveSpd);
@@ -259,8 +262,7 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Attack(Transform bullet)
         {
-            CommandPattern shootCommandPattern = bullet.gameObject.GetComponent<CommandPattern>();
-            shootCommandPattern.shooting = true;     
+                
         }
     }
 
