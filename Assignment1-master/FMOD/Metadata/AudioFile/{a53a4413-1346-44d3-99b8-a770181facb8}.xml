@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a53a4413-1346-44d3-99b8-a770181facb8}">
+		<property name="assetPath">
+			<value>Kick-SoundBible.com-1331196005.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.063673469387755</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ae686ac0-b004-46c5-ae1e-a3727079039f}</destination>
+		</relationship>
+	</object>
+</objects>
