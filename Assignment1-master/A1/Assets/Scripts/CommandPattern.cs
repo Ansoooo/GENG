@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
+//command pattern from: https://www.habrador.com/tutorials/programming-patterns/1-command-pattern/
+
 namespace CommandPattern
 {
     public class CommandPattern : MonoBehaviour
@@ -285,6 +287,8 @@ namespace CommandPattern
                 accessCommandPattern.attacking = true;
                 accessCommandPattern.attackingTimer = 0.25f;
             }
+            AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
+            accessAnimationManager.switchAnimation(2);
         }
     }
 }

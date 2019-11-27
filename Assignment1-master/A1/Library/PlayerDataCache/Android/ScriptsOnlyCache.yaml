@@ -671,7 +671,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 054c11ebe7357ca64685056210b17e5a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SaveLoadPlayer

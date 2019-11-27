@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 
+//save and load from: https://www.youtube.com/watch?v=obYltqZLyMk&t=554s
+
 public class SaveAndLoad
 {
     public static void Save(string path, string content)
