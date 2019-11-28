@@ -4054,6 +4054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707528902}
   - component: {fileID: 1707528903}
+  - component: {fileID: 1707528904}
   m_Layer: 0
   m_Name: UserLog
   m_TagString: Untagged
@@ -4087,6 +4088,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3b65e21ec6c3f47af393deafe13de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1707528904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707528901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59be859080d7f5e4c800ed9f31caa67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileOut:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  fileIn:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!1 &1730716595
 GameObject:
   m_ObjectHideFlags: 0

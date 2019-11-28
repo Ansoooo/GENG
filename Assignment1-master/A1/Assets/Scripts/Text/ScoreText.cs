@@ -7,6 +7,7 @@ public class ScoreText : MonoBehaviour
     int score;
     public bool game;
     private userLogger log;
+    private userLoggerProfiler logProfiler;
 
     public void resetScore()
     {
@@ -18,6 +19,8 @@ public class ScoreText : MonoBehaviour
         score += 1;
         if (!GameObject.Find("HIDControls"))
             log.incrementLog(1, 1, true);
+        else
+            logProfiler.increValue(1f, 1);
     }
 
     public int getScore()
@@ -27,8 +30,10 @@ public class ScoreText : MonoBehaviour
 
     void Start()
     {
-            resetScore();
-            log = GameObject.Find("UserLog").GetComponent<userLogger>();
+        resetScore();
+        log = GameObject.Find("UserLog").GetComponent<userLogger>();
+        logProfiler = GameObject.Find("UserLog").GetComponent<userLoggerProfiler>();
+
         if (game)
         {
             if (!GameObject.Find("HIDControls"))

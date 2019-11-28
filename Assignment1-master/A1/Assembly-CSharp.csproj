@@ -63,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimationManager.cs" />
-    <Compile Include="Assets\Scripts\AttachText.cs" />
     <Compile Include="Assets\Scripts\ChangeScenes.cs" />
     <Compile Include="Assets\Scripts\CommandPattern.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyBehaviour.cs" />
@@ -74,11 +73,13 @@
     <Compile Include="Assets\Scripts\PluginTest.cs" />
     <Compile Include="Assets\Scripts\RocketLauncher\TestManager.cs" />
     <Compile Include="Assets\Scripts\RocketLauncher\TestObject.cs" />
-    <Compile Include="Assets\Scripts\SaveAndLoad.cs" />
-    <Compile Include="Assets\Scripts\SaveLoadPlayer.cs" />
-    <Compile Include="Assets\Scripts\ScoreText.cs" />
-    <Compile Include="Assets\Scripts\TutorialText.cs" />
-    <Compile Include="Assets\Scripts\userLogger.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\SaveAndLoad.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad\SaveLoadPlayer.cs" />
+    <Compile Include="Assets\Scripts\Text\AttachText.cs" />
+    <Compile Include="Assets\Scripts\Text\ScoreText.cs" />
+    <Compile Include="Assets\Scripts\Text\TutorialText.cs" />
+    <Compile Include="Assets\Scripts\UserLog\userLogger.cs" />
+    <Compile Include="Assets\Scripts\UserLog\userLoggerProfiler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -116,6 +117,7 @@
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\UserLog.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

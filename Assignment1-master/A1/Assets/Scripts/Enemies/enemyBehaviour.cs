@@ -233,6 +233,7 @@ public class enemyBehaviour : MonoBehaviour
 
     private ScoreText score;
     private userLogger log;
+    private userLoggerProfiler logProfiler;
     private AnimationManager anim;
 
     void manageAttacks()
@@ -251,6 +252,8 @@ public class enemyBehaviour : MonoBehaviour
                 attackPlayerTimer = 0.75f;
                 if (!GameObject.Find("HIDControls"))
                     log.incrementLog(1f, 2, true);
+                else
+                    logProfiler.increValue(1f, 2);
             }
 
             //PLAYER ATTACK
@@ -260,6 +263,8 @@ public class enemyBehaviour : MonoBehaviour
                 gameObject.GetComponent<Renderer>().material.color = player.GetComponent<Renderer>().material.color;
                 if (!GameObject.Find("HIDControls"))
                     log.incrementLog(1f, 0, true);
+                else
+                    logProfiler.increValue(1f, 0);
             }
             else
                 gameObject.GetComponent<Renderer>().material.color = thisRend.material.color;
@@ -336,6 +341,7 @@ public class enemyBehaviour : MonoBehaviour
 
         score = GameObject.Find("Score").GetComponent<ScoreText>();
         log = GameObject.Find("UserLog").GetComponent<userLogger>();
+        logProfiler = GameObject.Find("UserLog").GetComponent<userLoggerProfiler>();
         anim = gameObject.GetComponentInChildren<AnimationManager>();
     }
 
