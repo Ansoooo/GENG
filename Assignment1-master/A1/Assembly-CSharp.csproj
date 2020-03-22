@@ -119,34 +119,34 @@
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\UserLog.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/A1/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/A1/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
