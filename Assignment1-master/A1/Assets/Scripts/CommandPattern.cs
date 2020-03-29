@@ -81,13 +81,7 @@ namespace CommandPattern
             //Attack-punching
             if(playerHealth <= 0 || myObj.transform.position.y < -40)
             {
-                ChangeScenes death = new ChangeScenes();
-                if (!HIDControls) // protect mobile users from the dreaded missing plugin
-                {
-                    death.changeScenes("ScoreScene");
-                }
-                else
-                    death.changeScenes("GameScene");
+                myObj.transform.position = new Vector3(myObj.transform.position.x, 40, myObj.transform.position.z);
                 Debug.Log("respawnPlayer");
             }
             healthUI.GetComponent<UnityEngine.UI.Text>().text = "Health: " + playerHealth.ToString();
@@ -102,7 +96,7 @@ namespace CommandPattern
                 attackingTimer -= Time.deltaTime;
             }
 
-            //Attack-shooting
+            //Attack
             if (shooting == true)
             {
                 Transform newBullet = Instantiate(bullet, myObj.position, Quaternion.identity) as Transform;
@@ -184,10 +178,6 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
-            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
-            if (accessTutorialText.stageNum == 1f)
-            { accessTutorialText.updateText(accessTutorialText.stageNum, 1f); }
-
             AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
             accessAnimationManager.turnAround(true);
             accessAnimationManager.switchAnimation(1);
@@ -214,10 +204,6 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Move(Transform myObj)
         {
-            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
-            if (accessTutorialText.stageNum == 1.2f)
-            { accessTutorialText.updateText(accessTutorialText.stageNum, 1.2f); }
-
             AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
             accessAnimationManager.turnAround(false);
             accessAnimationManager.switchAnimation(1);
@@ -244,10 +230,6 @@ namespace CommandPattern
         // move object for 0.5f
         public override void Jump(Transform myObj)
         {
-            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
-            if (accessTutorialText.stageNum == 1.4f)
-            { accessTutorialText.updateText(accessTutorialText.stageNum, 1.4f); }
-
             if (Physics.Raycast(new Vector3(myObj.position.x, myObj.position.y, myObj.position.z), -Vector3.up, myObj.GetComponent<Collider>().bounds.extents.y + 0.1f))
                 myObj.GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
         }
@@ -277,15 +259,11 @@ namespace CommandPattern
 
         public override void Punch(Transform myObj)
         {
-            TutorialText accessTutorialText = GameObject.Find("TutorialText").GetComponent<TutorialText>();
-            if (accessTutorialText.stageNum == 2f)
-            { accessTutorialText.updateText(accessTutorialText.stageNum, 2f); }
-
             CommandPattern accessCommandPattern = myObj.gameObject.GetComponent<CommandPattern>();
             if (accessCommandPattern.attackingTimer == 0)
             {
                 accessCommandPattern.attacking = true;
-                accessCommandPattern.attackingTimer = 0.25f;
+                accessCommandPattern.attackingTimer = 0.25f;               
             }
             AnimationManager accessAnimationManager = GameObject.Find("PlayerAnimationManager").GetComponent<AnimationManager>();
             accessAnimationManager.switchAnimation(2);

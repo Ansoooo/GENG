@@ -11,17 +11,17 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimationManager
     - AttachText
-    - ChangeScenes
     - CommandPattern.CommandPattern
     - PoolManager
     - SaveLoadPlayer
-    - ScoreText
     - TestManager
     - TestObject
-    - TutorialText
-    - enemyBehaviour
-    - enemySpawn
+    - enemyPlayer
     - fmodSoundController
+    - followPlayer
+    - networkingUI
+    - receive
+    - send
     - userLogger
     - userLoggerProfiler
     Unity.TextMeshPro.dll:
@@ -39,7 +39,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Scenes/GameScene.unity:
     - Class: 1
@@ -85,8 +87,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9788}
     - Class: 114
-      Script: {instanceID: 9846}
-    - Class: 114
       Script: {instanceID: 9864}
     - Class: 114
       Script: {instanceID: 9976}
@@ -99,39 +99,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10164}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10166}
     - Class: 114
-      Script: {instanceID: 10450}
+      Script: {instanceID: 10222}
     - Class: 114
-      Script: {instanceID: 10578}
+      Script: {instanceID: 10312}
     - Class: 114
-      Script: {instanceID: 10622}
+      Script: {instanceID: 10356}
     - Class: 114
-      Script: {instanceID: 10672}
+      Script: {instanceID: 10452}
     - Class: 114
-      Script: {instanceID: 10720}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10858}
+      Script: {instanceID: 10598}
     - Class: 114
-      Script: {instanceID: 10938}
+      Script: {instanceID: 10724}
     - Class: 114
-      Script: {instanceID: 11034}
+      Script: {instanceID: 10862}
     - Class: 114
-      Script: {instanceID: 11128}
+      Script: {instanceID: 10912}
     - Class: 114
-      Script: {instanceID: 11390}
+      Script: {instanceID: 11040}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11062}
     - Class: 114
-      Script: {instanceID: 11696}
+      Script: {instanceID: 11076}
     - Class: 114
-      Script: {instanceID: 11754}
+      Script: {instanceID: 11110}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11136}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11398}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11458}
+    - Class: 114
+      Script: {instanceID: 11472}
+    - Class: 114
+      Script: {instanceID: 11608}
+    - Class: 114
+      Script: {instanceID: 11704}
+    - Class: 114
+      Script: {instanceID: 11718}
+    - Class: 114
+      Script: {instanceID: 11762}
+    - Class: 114
+      Script: {instanceID: 11790}
+    - Class: 114
+      Script: {instanceID: 11822}
+    - Class: 114
+      Script: {instanceID: 11824}
+    - Class: 114
+      Script: {instanceID: 11834}
+    - Class: 114
+      Script: {instanceID: 11842}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -143,126 +163,6 @@ ScriptsOnlyBuild:
     - Class: 205
       Script: {instanceID: 0}
     - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/Menu.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9788}
-    - Class: 114
-      Script: {instanceID: 9976}
-    - Class: 114
-      Script: {instanceID: 10020}
-    - Class: 114
-      Script: {instanceID: 10310}
-    - Class: 114
-      Script: {instanceID: 10354}
-    - Class: 114
-      Script: {instanceID: 10450}
-    - Class: 114
-      Script: {instanceID: 10476}
-    - Class: 114
-      Script: {instanceID: 10672}
-    - Class: 114
-      Script: {instanceID: 10858}
-    - Class: 114
-      Script: {instanceID: 11102}
-    - Class: 114
-      Script: {instanceID: 11390}
-    - Class: 114
-      Script: {instanceID: 11464}
-    - Class: 114
-      Script: {instanceID: 11600}
-    - Class: 114
-      Script: {instanceID: 11710}
-    - Class: 114
-      Script: {instanceID: 11814}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/ScoreScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9788}
-    - Class: 114
-      Script: {instanceID: 9976}
-    - Class: 114
-      Script: {instanceID: 10020}
-    - Class: 114
-      Script: {instanceID: 10164}
-    - Class: 114
-      Script: {instanceID: 10450}
-    - Class: 114
-      Script: {instanceID: 10622}
-    - Class: 114
-      Script: {instanceID: 10672}
-    - Class: 114
-      Script: {instanceID: 10858}
-    - Class: 114
-      Script: {instanceID: 11390}
-    - Class: 114
-      Script: {instanceID: 11814}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -431,6 +331,12 @@ ScriptsOnlyBuild:
     className: userLogger
   - hash:
       serializedVersion: 2
+      Hash: e849e477acbc0b96d2ee74809a0bf924
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyPlayer
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -581,6 +487,12 @@ ScriptsOnlyBuild:
     className: FMODEventTrack
   - hash:
       serializedVersion: 2
+      Hash: cd77d9c4238e808e4a39854c47317a7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: receive
+  - hash:
+      serializedVersion: 2
       Hash: 1e4f0ebb6c48b1e62d082d1062f65ac7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -665,6 +577,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 29caa9ddb5988d1f972463a916427959
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: networkingUI
+  - hash:
+      serializedVersion: 2
       Hash: 16e19797b2ddb89dba77fabc0f71553c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -693,6 +611,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: ObjectSpin
+  - hash:
+      serializedVersion: 2
+      Hash: 83e769eee07fc231384c812eedbb8224
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: followPlayer
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -1043,6 +967,12 @@ ScriptsOnlyBuild:
     className: StudioBankLoader
   - hash:
       serializedVersion: 2
+      Hash: 02842f195853c635f7bccd219f41925c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: send
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1073,7 +1003,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 5
   scenePathNames:
-  - Assets/Scenes/Menu.unity
   - Assets/Scenes/GameScene.unity
-  - Assets/Scenes/ScoreScene.unity
-  playerPath: C:/Users/clank/Documents/GENGRepo/GENG/Assignment1-master/GENGPC/GameEnginesFinal.exe
+  playerPath: C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/GENGNetwork/NetworkingFinal.exe
