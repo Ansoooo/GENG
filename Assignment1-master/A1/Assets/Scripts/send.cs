@@ -32,6 +32,7 @@ public class send : MonoBehaviour
     public string opponentIP;
 
     public bool isHost;
+    public int winner;
 
     public IPEndPoint[] remoteEndPoint;
     public UdpClient[] client;
@@ -115,6 +116,7 @@ public class send : MonoBehaviour
         hostIP = networkingUI.instance.hostIP;
         myIP = networkingUI.instance.myIP;
         isHost = networkingUI.instance.toggleHost;
+        winner = 0;
 
         //Set the host and server send
         // 0 for other player (which is host)
@@ -141,7 +143,7 @@ public class send : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0.0f)
+        if(timer <= 0.0f && winner == 0)
         {
             if (sendCycle == 0)
             {
@@ -164,16 +166,24 @@ public class send : MonoBehaviour
             }
         }
 
-
-        if (player.GetComponent<CommandPattern.CommandPattern>().playerHealth <= 0)
+        if (player.GetComponent<CommandPattern.CommandPattern>().playerHealth <= 0 && winner == 0)
         {
             sendScor();
+            winner = 1;
+        }
+        else if (enemyPlayer.GetComponent<enemyPlayer>().enemyPlayerHealth <= 0 && winner == 0)
+        {
+            sendScor();
+            winner = 2;
+        }
+
+        if(winner == 1)
+        {
             sendFinalScor(false); // local client lost
             Application.Quit();
         }
-        else if (enemyPlayer.GetComponent<enemyPlayer>().enemyPlayerHealth <= 0)
+        else if(winner == 2)
         {
-            sendScor();
             sendFinalScor(true); // remote client lost
             Application.Quit();
         }

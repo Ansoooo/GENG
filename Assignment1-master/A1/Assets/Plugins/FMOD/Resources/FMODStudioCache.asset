@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8827373377531907143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637193572587869749
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8343688591315704969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +69,7 @@ MonoBehaviour:
   Path: event:/Kick
   guid: bdd364a3391e76488ec4a78458019d46
   Banks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -128,7 +146,7 @@ MonoBehaviour:
   Path: event:/Punch
   guid: 7ebbd65175306144a80590252d072380
   Banks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -151,7 +169,7 @@ MonoBehaviour:
   Path: event:/Test
   guid: fa13f06c6f35a54ca2349a3a341db42d
   Banks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -343,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 483928324648137333}
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   EditorEvents:
   - {fileID: -5433950044591913473}
   - {fileID: 8262158102342097188}
@@ -352,10 +370,10 @@ MonoBehaviour:
   - {fileID: 1286580505804312974}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   StringsBanks:
   - {fileID: 483928324648137333}
-  stringsBankWriteTime: 637211137337585780
+  stringsBankWriteTime: 637193572587075147
   cacheVersion: 3
 --- !u!114 &236334781802044897
 MonoBehaviour:
@@ -389,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637211137337585780
+  lastModified: 637193572587075147
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -446,7 +464,7 @@ MonoBehaviour:
   Path: event:/Jump
   guid: 59daf5a29c38784c810f827873b271b8
   Banks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -595,7 +613,7 @@ MonoBehaviour:
   Path: event:/RocketLaunch
   guid: 785bae051917c045a09c97abfa31ae6b
   Banks:
-  - {fileID: 7523845264131604293}
+  - {fileID: -8827373377531907143}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

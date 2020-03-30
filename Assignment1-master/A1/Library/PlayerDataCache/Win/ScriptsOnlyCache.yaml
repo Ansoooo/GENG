@@ -967,7 +967,7 @@ ScriptsOnlyBuild:
     className: StudioBankLoader
   - hash:
       serializedVersion: 2
-      Hash: 02842f195853c635f7bccd219f41925c
+      Hash: f485bfd1cb1d77b2aad5450fd7ff8ffd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: send
