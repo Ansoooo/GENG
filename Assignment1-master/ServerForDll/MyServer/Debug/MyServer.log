@@ -1,0 +1,10 @@
+﻿  MyServer.cpp
+c:\users\100633412\desktop\justserver\myserver.cpp(16): warning C4091: 'typedef ': ignored on left of 'UserData' when no variable is declared
+c:\users\100633412\desktop\justserver\myserver.cpp(22): warning C4091: 'typedef ': ignored on left of 'InboundMessagePacket' when no variable is declared
+c:\users\100633412\desktop\justserver\myserver.cpp(29): warning C4091: 'typedef ': ignored on left of 'OutboundMessagePacket' when no variable is declared
+c:\users\100633412\desktop\justserver\myserver.cpp(36): warning C4091: 'typedef ': ignored on left of 'Lobby' when no variable is declared
+c:\users\100633412\desktop\justserver\myserver.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\100633412\desktop\justserver\myserver.cpp(83): warning C4018: '<': signed/unsigned mismatch
+c:\users\100633412\desktop\justserver\myserver.cpp(155): warning C4018: '<': signed/unsigned mismatch
+c:\users\100633412\desktop\justserver\myserver.cpp(192): warning C4018: '<': signed/unsigned mismatch
+  MyServer.vcxproj -> C:\Users\100633412\Desktop\JustServer\MyServer\Debug\MyServer.exe

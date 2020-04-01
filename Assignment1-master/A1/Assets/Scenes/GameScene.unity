@@ -5325,6 +5325,8 @@ GameObject:
   - component: {fileID: 1566876546}
   - component: {fileID: 1566876549}
   - component: {fileID: 1566876548}
+  - component: {fileID: 1566876551}
+  - component: {fileID: 1566876550}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5497,6 +5499,7 @@ MonoBehaviour:
   myIP: 
   opponentIP: 
   isHost: 0
+  winner: 0
   message: 
   player: {fileID: 1566876540}
   enemyPlayer: {fileID: 1663732237}
@@ -5504,6 +5507,32 @@ MonoBehaviour:
   moveInterval: 0.5
   timer: 1
   sendCycle: 0
+--- !u!114 &1566876550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566876540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d848129361d427f438a0b890805558de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1566876551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566876540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3a995a986036d4fb22936d81bdafee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  ClientRunning: 0
 --- !u!1001 &1584147429
 PrefabInstance:
   m_ObjectHideFlags: 0

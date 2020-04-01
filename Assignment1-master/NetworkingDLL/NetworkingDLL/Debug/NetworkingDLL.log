@@ -1,0 +1,69 @@
+﻿  NetworkingClass.cpp
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): warning C4251: 'NetworkingClass::InboundCPPMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(73): warning C4251: 'NetworkingClass::InboundCSMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(74): warning C4251: 'NetworkingClass::OutboundMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(77): warning C4251: 'NetworkingClass::ClientName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.15.26726\include\xstring(4373): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  Wrapper.cpp
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): warning C4251: 'NetworkingClass::InboundCPPMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(73): warning C4251: 'NetworkingClass::InboundCSMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(74): warning C4251: 'NetworkingClass::OutboundMsgs': class 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(72): note: see declaration of 'std::queue<std::string,std::deque<_Ty,std::allocator<_Ty>>>'
+          with
+          [
+              _Ty=std::string
+          ]
+c:\users\100633412\desktop\testnet\testnetdll\networkingdll\networkingdll\networkingclass.h(77): warning C4251: 'NetworkingClass::ClientName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'NetworkingClass'
+  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.15.26726\include\xstring(4373): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  Generating Code...
+     Creating library C:\Users\100633412\Desktop\TestNet\TestNetDll\NetworkingDLL\Debug\NetworkingDLL.lib and object C:\Users\100633412\Desktop\TestNet\TestNetDll\NetworkingDLL\Debug\NetworkingDLL.exp
+  NetworkingDLL.vcxproj -> C:\Users\100633412\Desktop\TestNet\TestNetDll\NetworkingDLL\Debug\NetworkingDLL.dll
