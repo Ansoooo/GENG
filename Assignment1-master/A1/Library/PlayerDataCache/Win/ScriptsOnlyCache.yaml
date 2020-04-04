@@ -12,6 +12,8 @@ ScriptsOnlyBuild:
     - AnimationManager
     - AttachText
     - CommandPattern.CommandPattern
+    - NetHandler
+    - NetWrapper
     - PoolManager
     - SaveLoadPlayer
     - TestManager
@@ -85,73 +87,77 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9788}
+      Script: {instanceID: 9790}
     - Class: 114
-      Script: {instanceID: 9864}
+      Script: {instanceID: 9866}
     - Class: 114
-      Script: {instanceID: 9976}
+      Script: {instanceID: 9978}
     - Class: 114
-      Script: {instanceID: 10020}
+      Script: {instanceID: 10022}
     - Class: 114
-      Script: {instanceID: 10072}
+      Script: {instanceID: 10074}
     - Class: 114
-      Script: {instanceID: 10150}
-    - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10152}
     - Class: 114
       Script: {instanceID: 10166}
     - Class: 114
-      Script: {instanceID: 10222}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10312}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10356}
+      Script: {instanceID: 10268}
     - Class: 114
-      Script: {instanceID: 10452}
+      Script: {instanceID: 10316}
     - Class: 114
-      Script: {instanceID: 10478}
+      Script: {instanceID: 10360}
     - Class: 114
-      Script: {instanceID: 10598}
+      Script: {instanceID: 10456}
     - Class: 114
-      Script: {instanceID: 10724}
+      Script: {instanceID: 10482}
     - Class: 114
-      Script: {instanceID: 10862}
+      Script: {instanceID: 10602}
     - Class: 114
-      Script: {instanceID: 10912}
+      Script: {instanceID: 10728}
     - Class: 114
-      Script: {instanceID: 11040}
+      Script: {instanceID: 10866}
     - Class: 114
-      Script: {instanceID: 11062}
+      Script: {instanceID: 10916}
     - Class: 114
-      Script: {instanceID: 11076}
+      Script: {instanceID: 11044}
     - Class: 114
-      Script: {instanceID: 11110}
+      Script: {instanceID: 11066}
     - Class: 114
-      Script: {instanceID: 11136}
+      Script: {instanceID: 11080}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11114}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11134}
     - Class: 114
-      Script: {instanceID: 11472}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11704}
+      Script: {instanceID: 11466}
     - Class: 114
-      Script: {instanceID: 11718}
+      Script: {instanceID: 11480}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 11616}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 11712}
     - Class: 114
-      Script: {instanceID: 11822}
+      Script: {instanceID: 11726}
     - Class: 114
-      Script: {instanceID: 11824}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11798}
+    - Class: 114
+      Script: {instanceID: 11830}
+    - Class: 114
+      Script: {instanceID: 11832}
     - Class: 114
       Script: {instanceID: 11842}
+    - Class: 114
+      Script: {instanceID: 11850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -373,6 +379,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetHandler
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -487,7 +499,7 @@ ScriptsOnlyBuild:
     className: FMODEventTrack
   - hash:
       serializedVersion: 2
-      Hash: cd77d9c4238e808e4a39854c47317a7b
+      Hash: c0fe96c6fa4babd1c520346ef37cba7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: receive
@@ -665,6 +677,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TextConsoleSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 719b71c2b579e49bdbf9077f9c4f69da
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetWrapper
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -967,7 +985,7 @@ ScriptsOnlyBuild:
     className: StudioBankLoader
   - hash:
       serializedVersion: 2
-      Hash: f485bfd1cb1d77b2aad5450fd7ff8ffd
+      Hash: a24432d2cc173d15b89f5e028a7d378d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: send

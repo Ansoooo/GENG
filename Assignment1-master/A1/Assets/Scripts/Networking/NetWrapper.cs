@@ -21,7 +21,7 @@ public class NetWrapper : MonoBehaviour
     public static extern void SendPacket();
 
     [DllImport(DLL_NAME)]
-    public static extern void RecievePacket();
+    public static extern void RecvPacket();
     [DllImport(DLL_NAME)]
     public static extern void HandlePacket();
 
@@ -69,7 +69,7 @@ public class NetWrapper : MonoBehaviour
     {
         while (ClientRunning)
         {
-            RecievePacket();
+            RecvPacket();
             yield return new WaitForSeconds(RefreshTime);
         }
     }

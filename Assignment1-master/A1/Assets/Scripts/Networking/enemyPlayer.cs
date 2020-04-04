@@ -13,6 +13,8 @@ public class enemyPlayer : MonoBehaviour
     public float vX, vY;
     public float timer;
 
+    AnimationManager animator;
+
     //Funcs
     public void newPosi(float _X, float _Y)
     {
@@ -32,6 +34,7 @@ public class enemyPlayer : MonoBehaviour
     void Start()
     {
         healthUI = GameObject.Find("EnemyPlayerHealth");
+        animator = gameObject.GetComponentInChildren<AnimationManager>();
 
         vX = 0; //no velocity when we start
         vY = 0;
@@ -48,6 +51,22 @@ public class enemyPlayer : MonoBehaviour
 
         timer += Time.deltaTime;
         gameObject.transform.position = new Vector3(pX + (vX * timer), pY + (vY * timer), gameObject.transform.position.z);
+
+        //Animation stuff
+        if(X == gameObject.transform.position.x && Y == gameObject.transform.position.y)
+        {
+            animator.switchAnimation(0);
+        }
+        else if(X < gameObject.transform.position.x)
+        {
+            animator.switchAnimation(1);
+            animator.turnAround(true);
+        }
+        else if(X > gameObject.transform.position.x)
+        {
+            animator.switchAnimation(1);
+            animator.turnAround(false);
+        }
     }
 
     private void OnTriggerStay(Collider other)

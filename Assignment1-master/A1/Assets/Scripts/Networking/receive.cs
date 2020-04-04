@@ -36,6 +36,9 @@ public class receive : MonoBehaviour
     public GameObject enemyPlayer;
     public GameObject displayText;
 
+    public float attackInterval;
+    public float attackTimer;
+
     //Funcs
     private void ReceiveData()
     {
@@ -61,10 +64,15 @@ public class receive : MonoBehaviour
     public void interpretMessage(string _message)
     {
         displayText.GetComponent<Text>().text = "Recv: " + message;
-   
+
         if (_message.Substring(0,5) == "!atta")
         {
-            GameObject.Find("Player").GetComponent<CommandPattern.CommandPattern>().playerHealth -= 10;
+            if (attackTimer <= 0)
+            {
+                attackTimer = attackInterval;
+                GameObject.Find("Player").GetComponent<CommandPattern.CommandPattern>().playerHealth -= 10;
+                GameObject.Find("EnemyPlayer").GetComponentInChildren<AnimationManager>().switchAnimation(3);
+            }
         }
 
         if (_message.Substring(0,5) == "!move")
@@ -91,6 +99,7 @@ public class receive : MonoBehaviour
             send.instance.remoteEndPoint[0] = new IPEndPoint(IPAddress.Parse(info[1]), port);
             send.instance.client[0] = new UdpClient();
             send.instance.opponentIP = info[1]; // store ip for winner case later
+            send.instance.sendRankJoin(false); // send rank to server
         }
 
         //Reset
@@ -103,10 +112,19 @@ public class receive : MonoBehaviour
         receiver = new Thread(new ThreadStart(ReceiveData));
         receiver.IsBackground = true;
         receiver.Start();
+
+        attackTimer = 1f;
+        attackInterval = 1f;
     }
 
     void Update()
     {
+        attackTimer -= Time.deltaTime;
+        if(attackTimer < 0)
+        {
+            attackTimer = 0;
+        }
+
         if (message != "")
         {
             //interpret message here
