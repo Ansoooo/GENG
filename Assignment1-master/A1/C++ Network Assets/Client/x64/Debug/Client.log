@@ -1,0 +1,7 @@
+﻿  Client.cpp
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Client\Client.cpp(20,2): warning C4091:  'typedef ': ignored on left of 'User' when no variable is declared
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Client\Client.cpp(63,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Client\Client.cpp(71,29): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Client\Client.cpp(236,1): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Client\Client.cpp(301,1): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
+  Client.vcxproj -> C:\Users\clank\Desktop\Transfer (1)\Transfer\x64\Debug\Client.exe

@@ -1,0 +1,6 @@
+﻿  Server.cpp
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Server\Server.h(20,2): warning C4091:  'typedef ': ignored on left of 'User' when no variable is declared
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Server\Server.h(37,2): warning C4091:  'typedef ': ignored on left of 'InboundPacket' when no variable is declared
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Server\Server.h(43,2): warning C4091:  'typedef ': ignored on left of 'OutboundPacket' when no variable is declared
+C:\Users\clank\Desktop\Transfer (1)\Transfer\Server\Server.h(49,2): warning C4091:  'typedef ': ignored on left of 'Lobby' when no variable is declared
+  Server.vcxproj -> C:\Users\clank\Desktop\Transfer (1)\Transfer\x64\Debug\Server.exe

@@ -90,77 +90,77 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 11272}
     - Class: 114
-      Script: {instanceID: 14106}
+      Script: {instanceID: 11354}
     - Class: 114
-      Script: {instanceID: 14212}
+      Script: {instanceID: 11468}
     - Class: 114
-      Script: {instanceID: 14254}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 14304}
+      Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 14376}
+      Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 11656}
     - Class: 114
-      Script: {instanceID: 14392}
+      Script: {instanceID: 11658}
     - Class: 114
-      Script: {instanceID: 14450}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 14496}
+      Script: {instanceID: 11766}
     - Class: 114
-      Script: {instanceID: 14540}
+      Script: {instanceID: 11814}
     - Class: 114
-      Script: {instanceID: 14588}
+      Script: {instanceID: 11862}
     - Class: 114
-      Script: {instanceID: 14684}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 14714}
+      Script: {instanceID: 11992}
     - Class: 114
-      Script: {instanceID: 14836}
+      Script: {instanceID: 12126}
     - Class: 114
-      Script: {instanceID: 14968}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 15116}
+      Script: {instanceID: 12412}
     - Class: 114
-      Script: {instanceID: 15166}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 15288}
+      Script: {instanceID: 12598}
     - Class: 114
-      Script: {instanceID: 15308}
+      Script: {instanceID: 12620}
     - Class: 114
-      Script: {instanceID: 15312}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 15350}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 15368}
+      Script: {instanceID: 12690}
     - Class: 114
-      Script: {instanceID: 15378}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 15634}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 15692}
+      Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 15706}
+      Script: {instanceID: 13062}
     - Class: 114
-      Script: {instanceID: 15830}
+      Script: {instanceID: 13196}
     - Class: 114
-      Script: {instanceID: 15918}
+      Script: {instanceID: 13292}
     - Class: 114
-      Script: {instanceID: 15932}
+      Script: {instanceID: 13306}
     - Class: 114
-      Script: {instanceID: 15974}
+      Script: {instanceID: 13350}
     - Class: 114
-      Script: {instanceID: 16002}
+      Script: {instanceID: 13380}
     - Class: 114
-      Script: {instanceID: 16040}
+      Script: {instanceID: 13418}
     - Class: 114
-      Script: {instanceID: 16042}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 16052}
+      Script: {instanceID: 13430}
     - Class: 114
-      Script: {instanceID: 16060}
+      Script: {instanceID: 13438}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1033,4 +1033,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/conno/Desktop/GENG/Assignment1-master/Build/NetworkingFinal.exe
+  playerPath: C:/Users/clank/Documents/NetworkingStuff/GENG/Assignment1-master/GENGNetwork/NetworkingFinal.exe

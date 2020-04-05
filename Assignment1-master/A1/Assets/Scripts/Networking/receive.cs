@@ -39,6 +39,8 @@ public class receive : MonoBehaviour
     public float attackInterval;
     public float attackTimer;
 
+    bool joined = false;
+
     //Funcs
     private void ReceiveData()
     {
@@ -99,7 +101,12 @@ public class receive : MonoBehaviour
             send.instance.remoteEndPoint[0] = new IPEndPoint(IPAddress.Parse(info[1]), port);
             send.instance.client[0] = new UdpClient();
             send.instance.opponentIP = info[1]; // store ip for winner case later
-            send.instance.sendRankJoin(false); // send rank to server
+
+            if (joined == false)
+            {
+                send.instance.sendRankJoin(false); // send rank to server
+                joined = true;
+            }
         }
 
         //Handle this as you like. Logging hopefully gives us the marks.
