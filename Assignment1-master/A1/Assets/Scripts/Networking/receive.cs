@@ -102,6 +102,13 @@ public class receive : MonoBehaviour
             send.instance.sendRankJoin(false); // send rank to server
         }
 
+        //Handle this as you like. Logging hopefully gives us the marks.
+        if (_message.Substring(0, 5) == "SCORE")
+        {
+            float scoreAmount = float.Parse(_message.Split('#')[1]);
+            print("High score of " + scoreAmount.ToString() + "received.");
+        }
+
         //Reset
         message = "";
     }

@@ -92,10 +92,14 @@ public class send : MonoBehaviour
 
     public void sendFinalScor(bool winner)
     {
-        if (winner) // if winner = true, local client wins
-            message = "SCORE " + myIP;
-        else
-            message = "SCORE " + opponentIP; //we use host and remote client interchangably
+        //if (winner) // if winner = true, local client wins
+        //    message = "SCORE " + myIP;
+        //else
+        //    message = "SCORE " + opponentIP; //we use host and remote client interchangably
+
+        //Criteria for high score is the health left over (of the winning player) from the match:
+        float highscore = Math.Max(player.GetComponent<CommandPattern.CommandPattern>().playerHealth, enemyPlayer.GetComponent<enemyPlayer>().enemyPlayerHealth);
+        message = "SCORE#" + highscore.ToString();
         sendString(message, 1);
     } //only host
     public void sendRankJoin(bool who)
